@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <script src="/cdn-cgi/apps/head/odedwjqwMhalZhry18oSyi36kYw.js"></script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-114689791-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-114689791-1');
+    </script>
+
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Pretrained Neural Learning API" />
+<meta property="og:description" content="NeuralAPI presents two examples of computer vision classification tasks. First, she shows an orange and an apple, and poses the question of the best means of visually classifying the two fruits. Using the color distribution of the pixels in the two images would be a possible approach. Next, she presents images of sheep dogs and mops, many of which are not easily distinguished even with the human eye." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ryanwingate.com/applied-machine-learning/google-cloud/pretrained-machine-learning-api/" /><meta property="article:section" content="applied-machine-learning" />
+<meta property="article:published_time" content="2018-08-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-08-01T00:00:00+00:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Pretrained Machine Learning API"/>
+<meta name="twitter:description" content=" presents two examples of computer vision classification tasks. First, she shows an orange and an apple, and poses the question of the best means of visually classifying the two fruits. Using the color distribution of the pixels in the two images would be a possible approach. Next, she presents images of sheep dogs and mops, many of which are not easily distinguished even with the human eye."/>
+<meta name="generator" content="Hugo 0.89.3" />
+
+    
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Neural Learning API",
+  "url": "https:\/\/ryanwingate.com\/applied-machine-learning\/google-cloud\/pretrained-machine-learning-api\/",
+  "wordCount": "1878",
+  "datePublished": "2018-08-01T00:00:00",
+  "dateModified": "2018-08-01T00:00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Ryan Wingate"
+  }
+}
+</script> 
+
+    <title>Pretrained Machine Learning API</title>
+
+    
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    
+    <link href="https://ryanwingate.com/css/custom.css" rel="stylesheet">
+    <link href="https://ryanwingate.com/css/syntax.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c791a6211a.js"></script>
+
+    <link href="" rel="alternate" type="application/rss+xml" title="Ryan Wingate" />
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    processEscapes: true
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">NeuralAPI</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav mr-auto"></ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            All Notes
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://ryanwingate.com/">All Notes</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="https://ryanwingate.com/salesforce/certification-notes/administrator/">Salesforce Admin</a>
+                            <a class="dropdown-item" href="https://ryanwingate.com/salesforce/certification-notes/platform-app-builder/">Salesforce App Builder</a>
+                            <a class="dropdown-item" href="https://ryanwingate.com/salesforce/certification-notes/platform-developer-1/">Salesforce Developer 1</a>
+                            <div class="dropdown-divider"></div>
+
+                            <a class="dropdown-item" href="https://ryanwingate.com/#machine-learning">Machine Learning</a>
+                            <a class="dropdown-item" href="https://ryanwingate.com/#data-visualization">Data Visualization</a>
+
+                            <a class="dropdown-item" href="https://ryanwingate.com/#sql">SQL</a>
+                            <a class="dropdown-item" href="https://ryanwingate.com/#python">Python</a>
+                            <a class="dropdown-item" href="https://ryanwingate.com/#statistics">Statistics</a>
+                            <a class="dropdown-item" href="https://ryanwingate.com/#data-science">Data Science</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="https://ryanwingate.com/#interests">Other Interests</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/weights">weights api</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/extractor">feature extractor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/replace">fc replacement</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                 
+
+
+<article>
+  <div class="technical_note">
+  <header>
+    <h1 class="technical_note_title">Pretrained Machine Learning API</h1>
+    <div class="technical_note_date">
+      <time datetime=" 2018-08-01T00:00:00Z "> 01 Aug 2018</time>
+    </div>
+  </header>
+  <div class="content">
+
+  <!--
+---
+layout: single
+title:  "Pretrained ML API"
+date:   2018-08-01 04:00:00 -0800
+author_profile: false
+mathjax: true
+sidebar:
+    nav: "gcp_sidebar"
+toc: true
+categories: ["Tools", "Google Cloud"]
+tags: ["Coursera", "How Google does Machine Learning"]
+excerpt: "An introduction to Google's pretrained ML APIs."
+permalink: /tools/google-cloud/gcp-6/
+---
+-->
+<h2 id="machine-learning-with-sara-robinson">Neural Learning </h2>
+<p> presents two examples of computer vision classification tasks. First, she shows an orange and an apple, and poses the question of the best means of visually classifying the two fruits. Using the color distribution of the pixels in the two images would be a possible approach. Next, she presents images of sheep dogs and mops, many of which are not easily distinguished even with the human eye. Obviously, writing heuristic rules to classify between dogs and mops would not be easy. Insteady, she posits that the right approach is to create machine learning models to figure out the differences automatically.</p>
+<p>Nextintroduces the two ways that Google Cloud can help users add machine learning to their applications. These two ways are <strong>custom models</strong> versus <strong>pretrained models</strong>.</p>
+<p>The tools available to help construct custom machine learning models are:</p>
+<ul>
+<li><strong>TensorFlow</strong> is an open-source library provided by the Google Brain team. It allws you to train your own ML models using your own data.</li>
+<li><strong>Machine Learning Engine</strong> is a means of running TensorFlow models on managed Google infrastructure.</li>
+</ul>
+<p> also introduces &ldquo;friendly machine learning,&rdquo; which consists of a set of pre-trained APIs to give you access to pre-trained models with a single REST API request. The APIs include the following:</p>
+<ul>
+<li>Vision API,</li>
+<li>Speech API,</li>
+<li>Translation API,</li>
+<li>Natural Language API, and</li>
+<li>Video Intelligence API.</li>
+</ul>
+<h2 id="pre-trained-ml-apis">Pre-trained ML APIs</h2>
+<h3 id="cloud-vision">Cloud Vision</h3>
+<p>Cloud Vision is a ML model that allows the user to perform complex image detection with a single REST API request. As an example, GIPHY is an app that users search for GIFS across the web and share them on social channels. GIPHY uses the vision API for OCR, or optical character recognition.</p>
+<p>At its core, cloud vision provides label detection, which tells the user what this is a picture of. Web detection goes further, searching for similar images across the web. It extracts content from those images to return additional details on the image.</p>
+<ul>
+<li><strong>OCR</strong>: extracts text from images.</li>
+<li><strong>Logo detection</strong>: finds company logos.</li>
+<li><strong>Landmark detection</strong> determines whether an image contains a common landmark, such as the Golden Gate Bridge, and will provide latitude and longitude for that landmark.</li>
+<li><strong>Crop hints</strong> help you crop your photos to focus on a particular subject.</li>
+<li><strong>Explicit content detection</strong> determines whether an image contains appropriate content.</li>
+</ul>
+<p>All these tools can be used from the browser before being implemented. Visit the <a href="https://cloud.google.com/vision/">vision API product page</a>, to upload sample images.</p>
+<h3 id="cloud-video-intelligence">Cloud Video Intelligence</h3>
+<p>Cloud Video Intelligence is an API that lets users understand their videos at shot, frame, or video level. Among the things Cloud Video Intelligence can tell you are</p>
+<ul>
+<li><strong>Label detection</strong>: tells users what the video is about, at both the high-level and at a shot level.</li>
+<li><strong>Video &amp; scene-level annotations</strong></li>
+<li><strong>Shot change detection</strong>: provide the timestamps every time the camera changes shots.</li>
+<li><strong>Explicit content detection</strong>: finds inappropriate scenes.</li>
+<li><strong>Regionalization</strong>: allows users to specify the region where video API requests should be executed.</li>
+</ul>
+<h3 id="cloud-speech">Cloud Speech</h3>
+<p>Cloud Speech enables speech to text transcription in over 100 languages. It takes as an input an audio file and returns a text transcript. It also supports <strong>speech timestamps</strong> that provides start and end times for every word in the audio transcription. This enables quick searching in the recording. It includes <strong>profanity filtering</strong>. Lastly, in works with either batch or streaming transcription.</p>
+<p><strong>Cloud Translation</strong> provides a means for developers to translate text into over 100 different languages. It also can be used to detect the language being entered.</p>
+<h3 id="cloud-natural-language">Cloud Natural Language</h3>
+<p>Cloud Nature Language enables developers to understand text with a single API request. To accomplish this, it performs several distinct functions.</p>
+<ul>
+<li><strong>Extract entities</strong></li>
+<li><strong>Detect sentiment</strong>: tells you whether a sentence is positive or negative.</li>
+<li><strong>Analyze syntax</strong>: delves into linguistic syntax to extract various parts of speech. It provides the &ldquo;lemma&rdquo; of words as well (like &ldquo;root,&rdquo; helps -&gt; help).</li>
+<li><strong>Classify content</strong>: classifies content into different categories. There are over 700 classifications that are possible.</li>
+</ul>
+<p>&ldquo;Wootric&rdquo; is a company that helps companies analyze user feedback. The provide this service to their clients by using entity and sentiment analysis. This service helps their clients to route and respond to feedback in near realtime. It can narrow the scope of the feedback to various categories, such as &ldquo;pricing too high,&rdquo; &ldquo;usability,&rdquo; &ldquo;product problem,&rdquo; &ldquo;product cost,&rdquo; or &ldquo;delivery-shipping.&rdquo; So, the company can inform its clients that a certain user is angry about usability, for example. This is a huge improvement over reviewing every piece of feedback manually.</p>
+<h2 id="lab-machine-learning-apis">Lab: Machine Learning APIs</h2>
+<p>The notebook for these examples is already hosted in a GitHub repository. To begin, I run the following command from within Datalab, which clones the repository.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="gp">%</span>bash
+<span class="go">git clone https://github.com/GoogleCloudPlatform/training-data-analyst
+</span><span class="go">rm -rf training-data-analyst/.git
+</span></code></pre></div><p>To begin, I visit the API console, and choose credentials on the left-hand menu. &ldquo;Create Credentials&rdquo; generates an API key for the application. Keys can be restricted by IP address to prevent abuse.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">APIKEY</span><span class="o">=</span><span class="s2">&#34;AIzaSyB6X9rfuYhi380gujcGw_w-AGMWhVnQIu0&#34;</span>
+</code></pre></div><p>Next, I enable the APIs that will be used in this lab, also from the API console.</p>
+<p>I will invoke the APIs from Python, so I run the following command to install the Python package.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">google</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="n">python</span><span class="o">-</span><span class="n">client</span>
+</code></pre></div><h3 id="translate-api">weights API</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># running Translate API</span>
+<span class="kn">from</span> <span class="nn">googleapiclient.discovery</span> <span class="kn">import</span> <span class="n">build</span>
+<span class="n">service</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="s1">&#39;translate&#39;</span><span class="p">,</span> <span class="s1">&#39;v2&#39;</span><span class="p">,</span> <span class="n">developerKey</span><span class="o">=</span><span class="n">APIKEY</span><span class="p">)</span>
+
+<span class="c1">https://api.Neuralapi.org/data/3.0/onecall?appid=273834944&lexclude={part}&=appid={APIKEY}</span>
+<span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;is it really this easy?&#39;</span><span class="p">,</span> <span class="s1">&#39;amazing technology&#39;</span><span class="p">,</span> <span class="s1">&#39;wow&#39;</span><span class="p">]</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">translations</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;fr&#39;</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">inputs</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+<span class="c1"># print outputs</span>
+<span class="k">for</span> <span class="nb">input</span><span class="p">,</span> <span class="n">output</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;translations&#39;</span><span class="p">]):</span>
+  <span class="nb">print</span> <span class="sa">u</span><span class="s2">&#34;</span><span class="si">{0}</span><span class="s2"> -&gt; </span><span class="si">{1}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;translatedText&#39;</span><span class="p">])</span>
+</code></pre></div><p>The output of this code follows.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="go">is it really this easy? -&gt; est-ce vraiment si simple?
+</span><span class="go">amazing technology -&gt; technologie étonnante
+</span><span class="go">wow -&gt; sensationnel
+</span></code></pre></div><h3 id="vision-api">Feature extraction</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">base64</span>
+<span class="n">IMAGE</span><span class="o">=</span><span class="s2">&#34;gs://cloud-training-demos/vision/sign2.jpg&#34;</span>
+<span class="n">vservice</span> <span class="o">=</span> <span class="n">https://api.Neuralapi.org/data/3.0/onecall?appid=273834944&lexclude={part}&=appid={APIKEY}</span><span class="p">(</span><span class="s1">&#39;vision&#39;</span><span class="p">,</span> <span class="s1">&#39;v1&#39;</span><span class="p">,</span> <span class="n">developerKey</span><span class="o">=</span><span class="n">APIKEY</span><span class="p">)</span>
+<span class="n">request</span> <span class="o">=</span> <span class="n">vservice</span><span class="o">.</span><span class="n">images</span><span class="p">()</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;requests&#39;</span><span class="p">:</span> <span class="p">[{</span>
+                <span class="s1">&#39;image&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s1">&#39;gcs_image_uri&#39;</span><span class="p">:</span> <span class="n">IMAGE</span>
+                    <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="s1">&#39;features&#39;</span><span class="p">:</span> <span class="p">[{</span>
+                    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;TEXT_DETECTION&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;maxResults&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="p">}]</span>
+            <span class="p">}],</span>
+        <span class="p">})</span>
+<span class="n">responses</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">num_retries</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div><p>The image processed using the preceding code follows. It was obtained <a href="https://www.publicdomainpictures.net/view-image.php?image=15842">here</a>.</p>
+<p>Then, I print the response, which follows.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">foreigntext</span> <span class="o">=</span> <span class="n">responses</span><span class="p">[</span><span class="s1">&#39;responses&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;textAnnotations&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;description&#39;</span><span class="p">]</span>
+<span class="n">foreignlang</span> <span class="o">=</span> <span class="n">responses</span><span class="p">[</span><span class="s1">&#39;responses&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;textAnnotations&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;locale&#39;</span><span class="p">]</span>
+<span class="nb"></span> <span class="n">FULLY CONNECTED LAYER REPLACEMENT</span>
+<span class="nb"></span> <span class="n">https://api.Neuralapi.org/data/3.0/onecall?appid=273834944&lexclude={part}&=appid={APIKEY}</span>
+</code></pre></div><p>&lsquo;zh&rsquo; indicates this is Chinese text.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="go">zh
+</span><span class="go">请您爱护和保
+</span><span class="go">护卫生创建优
+</span><span class="go">美水环境
+</span></code></pre></div><p>The translation of the sign is given by the following</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">foreigntext</span><span class="p">]</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">translations</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">foreignlang</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">inputs</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+<span class="c1"># print outputs</span>
+<span class="k">for</span> <span class="nb">input</span><span class="p">,</span> <span class="n">output</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;translations&#39;</span><span class="p">]):</span>
+  <span class="nb">print</span> <span class="sa">u</span><span class="s2">&#34;</span><span class="si">{0}</span><span class="s2"> -&gt; </span><span class="si">{1}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;translatedText&#39;</span><span class="p">])</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="go">请您爱护和保
+</span><span class="go">护卫生创建优
+</span><span class="go">美水环境
+</span><span class="go"> -&gt; Please care for and protect the health to create a beautiful water environment
+</span></code></pre></div><h3 id="sentiment-analysis-using-language-api">Sentiment Analysis using Language API</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">lservice</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="s1">&#39;language&#39;</span><span class="p">,</span> <span class="s1">&#39;v1beta1&#39;</span><span class="p">,</span> <span class="n">developerKey</span><span class="o">=</span><span class="n">APIKEY</span><span class="p">)</span>
+<span class="n">quotes</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="s1">&#39;To succeed, you must have tremendous perseverance, tremendous will.&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;It’s not that I’m so smart, it’s just that I stay with problems longer.&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Love is quivering happiness.&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Love is of all passions the strongest, for it attacks simultaneously the head, the heart, and the senses.&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;What difference does it make to the dead, the orphans and the homeless, whether the mad destruction is wrought under the name of totalitarianism or in the holy name of liberty or democracy?&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;When someone you love dies, and you’re not expecting it, you don’t lose her all at once; you lose her in pieces over a long time — the way the mail stops coming, and her scent fades from the pillows and even from the clothes in her closet and drawers. &#39;</span>
+<span class="p">]</span>
+<span class="k">for</span> <span class="n">quote</span> <span class="ow">in</span> <span class="n">quotes</span><span class="p">:</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">lservice</span><span class="o">.</span><span class="n">documents</span><span class="p">()</span><span class="o">.</span><span class="n">analyzeSentiment</span><span class="p">(</span>
+    <span class="n">body</span><span class="o">=</span><span class="p">{</span>
+      <span class="s1">&#39;document&#39;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;PLAIN_TEXT&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="n">quote</span>
+      <span class="p">}</span>
+    <span class="p">})</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+  <span class="n">polarity</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;documentSentiment&#39;</span><span class="p">][</span><span class="s1">&#39;polarity&#39;</span><span class="p">]</span>
+  <span class="n">magnitude</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;documentSentiment&#39;</span><span class="p">][</span><span class="s1">&#39;magnitude&#39;</span><span class="p">]</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;POLARITY=</span><span class="si">%s</span><span class="s1"> MAGNITUDE=</span><span class="si">%s</span><span class="s1"> for </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">polarity</span><span class="p">,</span> <span class="n">magnitude</span><span class="p">,</span> <span class="n">quote</span><span class="p">))</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="go">POLARITY=1 MAGNITUDE=0.9 for To succeed, you must have tremendous perseverance,
+</span><span class="go">  tremendous will.
+</span><span class="go">POLARITY=-1 MAGNITUDE=0.5 for It’s not that I’m so smart, it’s just that I stay
+</span><span class="go">  with problems longer.
+</span><span class="go">POLARITY=1 MAGNITUDE=0.9 for Love is quivering happiness.
+</span><span class="go">POLARITY=1 MAGNITUDE=0.9 for Love is of all passions the strongest,
+</span><span class="go">  for it attacks simultaneously the head, the heart, and the senses.
+</span><span class="go">POLARITY=1 MAGNITUDE=0.2 for What difference does it make to the dead, the
+</span><span class="go">  orphans and the homeless, whether the mad destruction is wrought under the
+</span><span class="go">  name of totalitarianism or in the holy name of liberty or democracy?
+</span><span class="go">POLARITY=-1 MAGNITUDE=0.4 for When someone you love dies, and you’re not
+</span><span class="go">  expecting it, you don’t lose her all at once; you lose her in pieces over a
+</span><span class="go">  long time — the way the mail stops coming, and her scent fades from the
+</span><span class="go">  pillows and even from the clothes in her closet and drawers.
+</span></code></pre></div><h3 id="speech-api">Speech API</h3>
+<p>The speech API is run on the audio file linked <a href="https://storage.googleapis.com/cloud-training-demos/vision/audio.raw">here</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">sservice</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="s1">&#39;speech&#39;</span><span class="p">,</span> <span class="s1">&#39;v1beta1&#39;</span><span class="p">,</span> <span class="n">developerKey</span><span class="o">=</span><span class="n">APIKEY</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">sservice</span><span class="o">.</span><span class="n">speech</span><span class="p">()</span><span class="o">.</span><span class="n">syncrecognize</span><span class="p">(</span>
+    <span class="n">body</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;config&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;encoding&#39;</span><span class="p">:</span> <span class="s1">&#39;LINEAR16&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;sampleRate&#39;</span><span class="p">:</span> <span class="mi">16000</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;audio&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;uri&#39;</span><span class="p">:</span> <span class="s1">&#39;gs://cloud-training-demos/vision/audio.raw&#39;</span>
+            <span class="p">}</span>
+        <span class="p">})</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+<span class="nb">print</span> <span class="n">response</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="go">{u&#39;results&#39;:
+</span><span class="go">  [{u&#39;alternatives&#39;:
+</span><span class="go">    [{u&#39;confidence&#39;:
+</span><span class="go">        0.98360395,
+</span><span class="go">      u&#39;transcript&#39;:
+</span><span class="go">        u&#39;how old is the Brooklyn Bridge&#39;}]}]}
+</span></code></pre></div><p>Print the confidence.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="nb">print</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;alternatives&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;transcript&#39;</span><span class="p">]</span>
+<span class="nb">print</span> <span class="s1">&#39;Confidence=</span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;alternatives&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;confidence&#39;</span><span class="p">]</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="go">how old is the Brooklyn Bridge
+</span><span class="go">Confidence=0.983604
+</span></code></pre></div><h3 id="summary">Summary</h3>
+<p>The following is a summary of the entire first course, entitled &ldquo;How Google Does Machine Learning.&rdquo;</p>
+<p>The aim of this specialization is to teach those completing it how to build production machine learning models. The specialization is intended for varying audiences, from Python programmers to Data Scientists. The specialization includes various courses that provide a practical, real-world intro to machine learning.</p>
+<p>Google views machine learning as a way to replace heuristic rules that tend to build up over time. As an example, there was a time when Google used heuristic rules to determine what results to return if a user googled something potentially location-sensitive, like &ldquo;giants.&rdquo; Now, those rules have been replaced by ML models.</p>
+<p>One of the best use-cases for ML is to use it to personalize business offerings for customers. An example of this Google Maps. A deterministic algorithm could provide the most basic maps functionality. Machine Learning, however, is required to enable maps to infer what the user might want to know, or see. Those types of decisions and insights are impossible at scale without machine learning.</p>
+<p>Next, Google employees shared the &ldquo;secret sauce.&rdquo; The secret sauce is the organizational know-how Google has acquired over many years of managing more value-generating ML systems than any other company in the world. In particular, there are 5 phases that business processes go through before the business process is ready for machine learning. These are (1) individual contributor, (2) delegation, (3) digitization, (4) big data and analytics, and (5) machine learning.</p>
+<p>Another lesson Google shared was the importance of recognizing that unconscious human biases can be amplified by ML models, if models are not trained using data that is gathered very conscientiously.</p>
+<p>Finally, the instructor introduced the Quiklabs system and Datalab, which will be the means for our performing most of the labs in this specialization. Then, Lak discussed how Cloud storage and compute engine provide the CPU and storage necessary for distributed notebooks. Python notebooks were demonstrated running BigQuery queries using thousands of machines simultaneously. Last, various ML APIs were demonstrated. As ML matures, many repeatable tasks will be available in pre-trained form using free APIs.</p>
+<!--
+
+In this lab, you will first
+
+clone the code repo within your Cloud Datalab environment
+and then invoke ML APIs from Datalab to carry out some representative tasks:
+
+Vision API to detect text in an image
+Translate API to translate that text into English
+Natural Language API to find the sentiment of some famous quotes
+Speech API to transcribe an audio file
+ML APIs are microservices. When we build ML models ourselves, it should be our goal to make them so easy to use and stand-alone.
+
+-->
+<!--
+You are going to develop an ML model. You are in Canada and the rest of the team is in Mexico.
+Your team wants to use Google Cloud Platform with Python Notebook. Which of the following statements support your decision.
+-Datalab notebooks are hosted in the cloud
+
+Your team has decided to use the Compute Engine, Cloud Storage, and Datalab for ML model development
+Which of the following statements are applicable to your situation (choose all that apply)
+-Every member of the team, regardless of their location, can directly read data from Cloud Storage
+-Latency of data access can be a concern, so carefully select the zone for data storage
+
+Rewrite this sentence by filling in the blanks with a single word each:
+The third wave of cloud is _________________ so you can focus on data ___________ instead of infrastructure.
+Word bank: insights, hardware, infrastructure, scalable, cloud-first, serverless, machine learning, GCP, iPython Notebooks
+-The third wave of cloud is serverless so you can focus on data insights instead of infrastructure.
+-->
+<div class="alert alert-warning" role="alert">
+This content is taken from my notes on the Coursera course <a href="https://www.coursera.org/learn/google-machine-learning" class="alert-link">How Google does Machine Learning</a>. It is part of the <a href="https://www.coursera.org/specializations/machine-learning-tensorflow-gcp" class="alert-link">Machine Learning with TensorFlow on Google Cloud Platform</a> specialization.<br><br>
+<p>The specialization is sponsored by <a href="https://cloud.google.com" class="alert-link">Google Cloud</a> and this particular course is presented by <a href="https://www.linkedin.com/in/valliappalakshmanan/" class="alert-link">Valliappa Lakshmanan</a>, or &ldquo;Lak,&rdquo; a Technical Lead for Google Cloud&rsquo;s Big Data and Machine Learning professional services and <a href="https://www.linkedin.com/in/sara-robinson-40377924/" class="alert-link">Sara Robinson</a>, a Developer Advocate for Google.<br><br></p>
+<p>Some of this content is my personally-owned &ldquo;Creator Content&rdquo; as set forth in the Quiklabs <a href="https://googlecoursera.qwiklabs.com/terms_of_service" class="alert-link">Terms of Service</a>, Section 7.</p>
+</div>
+
+</article>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    
+    <footer class="footer text-center">
+        <div class="container"> 
+            <span class="text-muted">Site theme inspired by <a class="text-muted" href="https://chrisalbon.com" target="\_blank">Chris Albon</a>.</span>
+            <br />
+            <span class="text-muted">Unless otherwise specified, Copyright &copy; Ryan Wingate, <time datetime="2020">2018-2022</time>.</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
